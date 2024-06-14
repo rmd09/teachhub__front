@@ -1,12 +1,30 @@
 import Styles from "./page.module.css";
-import { StudentCard } from "./components/StudentCardList/StudentCard"; 
+import { StudentCardList } from "./components/StudentCardList/StudentCardList"; 
 
 export default function Home() {
+  const temp = [
+    {
+      name: "Максим",
+      subject: "Английский",
+      homework: "Домашка для Максима",
+      timeNotification: "Сегодня"
+    },
+    {
+      name: "Алексей",
+      subject: "Английский",
+      homework: "Домашка для Максима",
+      timeNotification: "Сегодня"
+    },
+    {
+      name: "Алексей",
+      subject: "Английский",
+      homework: "Домашка для Максима",
+      timeNotification: "Сегодня"
+    }
+  ]
   return (
     <main>
-      <StudentCard 
-      name="Максим" subject="Английский" homework="Домашка...вммвымв.мвывымв" timeNotification="Сегодня"
-      />
+      <StudentCardList data={temp}/>
     </main>
   )
 }

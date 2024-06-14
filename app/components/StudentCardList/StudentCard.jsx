@@ -1,4 +1,4 @@
-import Styles from "./StudentCardList.module.css";
+import Styles from "./StudentCard.module.css";
 
 export const StudentCard = (props) => {
     return (
