@@ -5,7 +5,6 @@ import Styles from "./Header.module.css";
 import { usePathname } from "next/navigation";
 
 export const Header = () => {
-    // const [pageId, setPageId] = useState("start-page"); //start-page; students-page; timetable-page
     const path = usePathname();
 
     return (

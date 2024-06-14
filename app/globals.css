@@ -12,12 +12,14 @@
 }
 
 body {
+    padding-top: 1vw;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #E5E5E5;
-    padding: 1vw 10vw 0 10vw;
 }
 
 a, Link {

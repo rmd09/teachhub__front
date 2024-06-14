@@ -1,0 +1,85 @@
+.student__card {
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #3B404D;
+    width: 80vw;
+    height: 10vw;
+    border-radius: 1.5vw;
+    transition: transform ease-in-out 300ms;
+
+    display: flex;
+}
+.student__card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.name {
+    position: relative;
+    width: 17%;
+    text-align: center;
+    border-right: 1px solid #3B404D;
+}
+.student__card-title {
+    font-size: 1.2vw;
+    margin-top: 1vw;
+    text-align: center;
+}
+.name__value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 1.55vw;
+    font-weight: 500;
+}
+.border {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.subject {
+    position: relative;
+    width: 17%;
+    text-align: center;
+    /* border-right: 2px dashed #3B404D; */
+}
+.subject__value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 1.55vw;
+    font-weight: 500;
+    color: #5A75A0;
+}
+.homework {
+    position: relative;
+    width: 54%;
+}
+.homework__value {
+    font-size: 1.1vw;
+    padding: 0 1vw;
+    text-align: justify;
+    margin-top: 0.6vw;
+}
+.meeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 12%;
+    padding-bottom: 0.6vw;
+}
+.meeting__image {
+    width: 5vw;
+}
+.meeting__notification {
+    font-size: 1vw;
+    text-wrap: nowrap;
+}
