@@ -14,9 +14,11 @@ export const Header = () => {
                 <Link href="/timetable"><h3 className={`${Styles["nav__headers"]} ${path === "/timetable" ? Styles["active"] : Styles["nav__headers-before"]}`}>Расписание</h3></Link>
             </nav>
             {path === "/" ? (
-                <img src="/img/logo.svg" alt="logo" className={Styles["logo"]} />
+                <object className={Styles["logo"]} type="image/svg+xml" data="/img/logo.svg">
+                <img src="/img/logo.svg" alt="Фолбэк"/>
+                </object>
             ) : (
-                <Link href="/"><img src="/img/logo.svg" alt="logo" className={Styles["logo"]} /></Link>
+                <Link href="/"className={`${Styles["logo"]} ${Styles["logo-ponter"]}`}></Link>
             )}
             
             <div className={Styles["auth"]}>

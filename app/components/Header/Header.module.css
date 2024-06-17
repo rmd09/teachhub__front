@@ -63,3 +63,10 @@
     border: 1px solid #000;
     background-color: #fff;
 }
+.logo-ponter {
+    cursor: pointer;
+    background-image: url(./logo.svg);
+    background-size: contain;
+    height: 100%;
+    transform: translateY(1px);
+}
