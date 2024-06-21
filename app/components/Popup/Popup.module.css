@@ -1,0 +1,51 @@
+.popup {
+    display: flex;
+    flex-direction: column;
+
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 65vw;
+    height: 80vh;
+    padding: 1vw;
+
+    border-radius: 2vw;
+    background-color: #fff;
+
+    overflow: hidden;
+    z-index: 5;
+
+    animation-name: open-popup;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+@keyframes open-popup {
+    from {
+        transform: translate(-50%, -50%) scale(0.6);
+        opacity: 0.6;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+.cross__section {
+    height: 2vw;
+    width: 100%;
+}
+.cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: 2vw;
+    width: 2vw;
+    padding: 1vw;
+}
+.cross:hover {
+    cursor: pointer;
+}
