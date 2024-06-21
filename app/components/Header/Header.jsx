@@ -10,7 +10,7 @@ export const Header = () => {
     return (
         <header className={Styles["header"]}>
             <nav className={Styles["nav"]}>
-                <Link href="/students"><h3 className={`${Styles["nav__headers"]} ${path === "/students" ? Styles["active"] : Styles["nav__headers-before"]}`}>Участники</h3></Link>
+                <Link href="/students"><h3 className={`${Styles["nav__headers"]} ${path === "/students" ? Styles["active"] : Styles["nav__headers-before"]}`}>Ученики</h3></Link>
                 <Link href="/timetable"><h3 className={`${Styles["nav__headers"]} ${path === "/timetable" ? Styles["active"] : Styles["nav__headers-before"]}`}>Расписание</h3></Link>
             </nav>
             {path === "/" ? (
