@@ -1,8 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Styles from "./StudentCard.module.css";
 
 export const StudentCard = (props) => {
     return (
-        <section className={Styles["student__card"]}>
+        <section onClick={props.openPopup} className={Styles["student__card"]}>
             <section className={Styles["name"]}>
                 <h3 className={Styles["student__card-title"]}>Имя</h3>
                 <h1 className={Styles["name__value"]}>{props.name}</h1>

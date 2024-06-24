@@ -1,0 +1,229 @@
+.form {
+    margin-top: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.h1 {
+    font-size: 1.8vw;
+    font-weight: 600;
+}
+.name__and__subject {
+    display: flex;
+    gap: 5vw;
+}
+.name {
+    display: flex;
+    gap: 1.5vw;
+    align-items: end;
+}
+.h3 {
+    font-size: 1.4vw;
+}
+.name__and__subject-value {
+    width: 12ch;
+
+    outline: none;
+    font-size: 1.8vw;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #3B404D;
+    transform: scale(0.9);
+    transition: all ease-in-out 150ms;
+}
+.name__and__subject-value:hover {
+    transform: none;
+}
+.name__and__subject-value:focus {
+    transform: none;
+    border-color: #000;
+}
+.subject {
+    display: flex;
+    gap: 1.5vw;
+    align-items: end;
+}
+.notes {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1vw;
+    width: 45.9vw;
+}
+.notes__value {
+    position: relative;
+    width: 44vw;
+    min-height: 8vh;
+    max-height: 20vh;
+    font-size: 1vw;
+    border: 1px solid #52596a;
+    border-radius: 0.4vw;
+    outline: none;
+    padding: 0.7vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* background-color: #ececec; */
+}
+.notes__value:focus {
+    border-color: #000;
+}
+.notes__value::-webkit-scrollbar {
+    width: 0.7vw;         /* ширина scrollbar */
+}
+.notes__value::-webkit-scrollbar-track {
+    background: #ececec; 
+    border-radius: 0.7vw;     /* цвет дорожки */
+}
+.notes__value::-webkit-scrollbar-thumb {
+    background-color: #5a75a0b1;    /* цвет плашки */
+    border-radius: 1vw;       /* закругления плашки */
+  /* padding вокруг плашки */
+}
+.notes__value::-webkit-scrollbar-thumb:hover{
+    cursor: pointer;
+}
+.notes__checkbox {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    gap: 0.5vw;
+    transform: translateX(-0.36vw);
+}
+.notes::after {
+    content: "";
+    height: 1.2vw;
+}
+.notes__checkbox-input{
+    width: 1.2vw;
+    border-radius: 0;
+}
+.notes__checkbox-input:hover{
+    cursor: pointer;
+}
+.h4{
+    font-size: 1.2vw;
+}
+.links__and__timetable {
+    display: flex;
+    justify-content: space-between;
+}
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vw;
+    width: 50%;
+    align-items: start;
+}
+.links__header {
+    display: flex;
+    align-items: center;
+    gap: 1.8vw;
+}
+.plus-svg {
+    background-color: #5A75A0;
+    width: 1.2vw;
+    height: 1.2vw;
+    padding: 0.55vw;
+    border-radius: 100%;
+    transition: transform ease-out 150ms;
+}
+.plus-svg:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+.plus-svg:active{
+    transition: background-color linear 10ms;
+    background-color: #7693c2;
+}
+.links__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1vw;
+}
+.links__link {
+    font-size: 1.05vw;
+    color: #2673E5;
+    border: 1px solid #2673E5;
+    padding: 0.2vw 1.3vw;
+    border-radius: 0.3vw;
+    text-align: center;
+    text-wrap: nowrap;
+}
+.timetable {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    gap: 0.5vw;
+}
+.timetable__header {
+    display: flex;
+    align-items: center;
+    gap: 1.8vw;
+}
+.timetable__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3vh;
+}
+.timetable__item {
+    display: flex;
+    gap: 0.5vw;
+}
+.delete__and__pencil__svg{
+    width: 1.3vw;
+}
+.delete__and__pencil__svg:hover {
+    cursor: pointer;
+}
+.form__buttons {
+    margin-top: 1.2vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5vw;
+}
+.button{
+    font-size: 1.2vw;
+    padding: 0.6vw 0;
+    border-radius: 0.7vw;
+    box-sizing: border-box;
+    text-align: center;
+    width: 12vw;
+}
+.save {
+    color: #3B404D;
+    /* background-color: #fff; */
+    border: 1px solid #3B404D;
+    transition: all ease-in-out 200ms;
+}
+.save:hover {
+    color: #fff;
+    background-color: #3B404D;
+}
+.save:active {
+    transition: transform linear 80ms;
+    transform: scale(0.95);
+}
+.delete {
+    color: #D60000;
+    font-weight: 500;
+    /* background-color: #D60000; */
+    border: 1px solid #D60000;
+    box-sizing: border-box;
+    transition: all ease-in-out 240ms;
+}
+.delete:hover {
+    color: #000;
+    font-weight: 400;
+    background-color: #D60000;
+    border: 1px solid #000;
+}
+.delete:active {
+    transition: transform linear 80ms;
+    transform: scale(0.95);
+}
