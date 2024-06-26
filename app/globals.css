@@ -2,6 +2,10 @@
     font-family: 'Inter';
     src: url(/fonts/Inter/Inter-Regular.ttf);
 }
+@font-face {
+    font-family: 'Panton';
+    src: url(/fonts/Panton.ttf);
+}
 
 * {
     margin: 0;
@@ -39,4 +43,11 @@ button {
 }
 button:hover {
     cursor: pointer;
+}
+img{
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
