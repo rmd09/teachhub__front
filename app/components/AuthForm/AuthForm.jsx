@@ -7,6 +7,8 @@ export const AuthForm = (props) => {
     const [isFirstForm, setIsFirstForm] = useState(true);
     const [isForTeacher, setIsForTeacher] = useState(true);
     const [isAuth, setIsAuth] = useState(props.isAuth);
+    const [isFocus1, setIsFocus1] = useState(false);
+    const [isFocus2, setIsFocus2] = useState(false);
 
     const teacherHandler = () => {
         setIsForTeacher(true);
@@ -16,6 +18,7 @@ export const AuthForm = (props) => {
         setIsForTeacher(false);
         setIsFirstForm(false);
     }
+
 
     return (
         <>
@@ -42,14 +45,14 @@ export const AuthForm = (props) => {
                     <h2 className={Styles["h2"]}>{isForTeacher ? "для учителя" : "для ученика"}</h2>
                 </header>
                 <section className={Styles["inputs"]}>
-                    <input placeholder="Имя пользователя" type="text" className={Styles["input"]} />
-                    <input placeholder="Пароль" type="password" className={Styles["input"]} />
+                    <div className={`${Styles["input__container"]} ${isFocus1 && Styles["input__container-focus"]}`}><input onFocus={() => {setIsFocus1(true)}} onBlur={() => {setIsFocus1(false)}} placeholder="Имя пользователя" type="text" className={`${Styles["input"]} ${Styles["input1"]}`} /></div>
+                    <div className={`${Styles["input__container"]} ${isFocus2 && Styles["input__container-focus"]}`}><input onFocus={() => {setIsFocus2(true)}} onBlur={() => {setIsFocus2(false)}} placeholder="Пароль" type="password" className={`${Styles["input"]} ${Styles["input2"]}`} /></div>
                 </section>
                 <section className={Styles["buttons"]}>
                     <button type="submit" className={Styles["main__button"]}>{isAuth ? "Войти" : "Зарегистрироваться"}</button>
                     <button type="button" className={Styles["gray__button"]}>{isAuth ? "Зарегистрироваться" : "Войти"}</button>
                 </section>
-                <h3 className={Styles["h3"]}>{isForTeacher ? "Вы ученик?" : "Вы учитель?"}<span className={Styles["click__link"]}>Кликайте!</span></h3>
+                <h3 className={Styles["h3"]}>{isForTeacher ? "Вы ученик?" : "Вы учитель?"} <span className={Styles["click__link"]}>Кликайте!</span></h3>
             </form>
         )}
         

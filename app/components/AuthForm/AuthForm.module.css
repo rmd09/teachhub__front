@@ -1,0 +1,150 @@
+.first__main {
+    display: flex;
+    gap: 3vw;
+}
+.iamteacher__gif {
+    width: 17vw;
+}
+.iamstudent__gif {
+    width: 17vw;
+}
+.first__text{
+    font-family: "Panton", monospace;
+    font-size: 2vw;
+    text-align: center;
+}
+.iamteacher:hover{
+    cursor: pointer;
+}
+.iamstudent:hover{
+    cursor: pointer;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+    padding: 0 1vw;
+}
+.header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+}
+.h1 {
+    font-size: 2vw;
+    font-weight: 600;
+}
+.h2 {
+    font-size: 1.3vw;
+    font-style: italic;
+}
+.inputs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7vw;
+}
+.input__container {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    width: 20vw;
+    height: 4vw;
+    border: 1px solid #757575;
+    border-radius: 1.3vw;
+    /* padding: 0.6vw 0.9vw; */
+}
+.input {
+    position: absolute;
+    left: 0.7vw;    
+
+    width: calc(100% - 0.9vw*2);
+
+    
+
+    text-align: start;
+    font-weight: 500;
+    font-size: 2vw;
+    outline: none;
+    border: none;
+
+    transition: all linear 200ms;
+}
+.input1 {
+    top: 0.7vw;
+}
+.input2 {
+    top: 6.4vw;
+}
+.input__container-focus {
+    border: 2px solid #000;
+
+    animation-name: borderAnimation;
+    animation-duration: 350ms;
+    animation-timing-function: ease-in-out;
+}
+@keyframes borderAnimation {
+    from {
+        border: 1px solid #757575;
+    }
+    50% {
+        border: 2px solid #757575;
+    }
+    to {
+        border: 2px solid #000;
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vw;
+}
+.main__button {
+    width: 20vw;
+    height: 4vw;
+    background-color: #3B404D;
+    border-radius: 1.3vw;
+
+    color: #fff;
+    font-size: 1.3vw;
+
+    transition: all ease-in-out 300ms;
+}
+.main__button:hover {
+    background-color: #4d5363;
+}
+.gray__button {
+    width: 20vw;
+    height: 4vw;
+    border: 1px solid #757575;
+    border-radius: 1.3vw;
+
+    color: #757575;
+    font-size: 1.3vw;
+
+    transition: all ease-in-out 300ms;
+}
+.gray__button:hover {
+    border: 1px solid #000;
+    color: #000;
+}
+.buttons button:active {
+    transition: all ease-in-out 200ms;
+    transform: scale(0.95);
+}
+.h3 {
+    font-size: 1.3vw;
+    transform: translateY(-0.35vw);
+}
+.click__link {
+    cursor: pointer;
+    color: #2673E5;
+}
