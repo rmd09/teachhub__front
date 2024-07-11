@@ -57,6 +57,8 @@ export const AuthForm = (props) => {
         <>
         {/* Форма №1: Учитель/ученик */}
         {isFirstForm && (
+            <>
+            <h1 className={`${Styles["h1"]} ${Styles["header__title"]}`}>{isAuth ? "Авторизация" : "Регистрация"}</h1>
             <main className={Styles["first__main"]}>
                 <section onClick={teacherHandler} className={Styles["iamteacher"]}>
                     <img src="/img/teacher.gif" alt="teacher" className={Styles["iamteacher__gif"]} />
@@ -67,6 +69,7 @@ export const AuthForm = (props) => {
                     <h3 className={Styles["first__text"]}>Я ученик</h3>
                 </section>
             </main>
+            </>
         )}
         
         

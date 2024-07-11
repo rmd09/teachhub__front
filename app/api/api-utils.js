@@ -20,6 +20,7 @@ export const getData = async(url) => {
 
 export const getMe = async(jwt, isTeacher) => {
     const url = isTeacher ? endpoints.getTeacherInfo : endpoints.getStudentInfo;
+    
     const response = await fetch(url, {
         method: "GET",
         headers: { 
