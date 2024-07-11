@@ -9,7 +9,7 @@ export const removeJWT = () => {
 }
 
 export const setIsTeacher = (isTeacher) => {
-    localStorage.setItem("isTeacher", jwt);
+    localStorage.setItem("isTeacher", isTeacher);
 }
 export const getIsTeacher = () => {
     return localStorage.getItem("isTeacher");

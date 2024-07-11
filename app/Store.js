@@ -10,7 +10,7 @@ export const useStore = create((set) => ({
     jwt: null,
     isTeacher: null,
 
-    login: async(JWT, user, isTeacher) => {
+    login: (JWT, user, isTeacher) => {
         setJWT(JWT);
         setIsTeacher(isTeacher);
         set(() => ({ jwt: JWT}));
@@ -26,14 +26,16 @@ export const useStore = create((set) => ({
         const jwt = getJWT();
         const isTeacher = getIsTeacher();
         if (jwt) {
-            const user = await getMe(jwt, isTeacher);
+            const user = await getMe(jwt, isTeacher ?? true); //на всякий случай
             if (user) {
                 set(() => ({ jwt: jwt}));
                 set(() => ({ isTeacher: isTeacher }));
                 set(() => ({ user: user }));
             }
             else {
-                logout();
+                set(() => ({ isAuth: false, user: null, jwt: null, isTeacher: null}));
+                removeJWT(); //logout
+                removeIsTeacher();
             }
         }
     }

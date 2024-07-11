@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation";
 import { Overlay } from "../Overlay/Overlay";
 import { Popup } from "../Popup/Popup";
 import { AuthForm } from "../AuthForm/AuthForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getData } from "@/app/api/api-utils";
+import { endpoints } from "@/app/api/config";
 
 export const Header = () => {
     const path = usePathname();
@@ -57,7 +59,7 @@ export const Header = () => {
             <>
             <Overlay close={closePopup} />
             <Popup close={closePopup}>
-                <AuthForm isAuth={isAuth} />
+                <AuthForm isAuth={isAuth} close={closePopup} />
             </Popup>
             </>
         )}

@@ -1,4 +1,8 @@
+"use client"
+
 import { endpoints } from "./config";
+import { useStore } from "../Store";
+
 
 export const getData = async(url) => {
     try {
@@ -15,22 +19,39 @@ export const getData = async(url) => {
 }
 
 export const getMe = async(jwt, isTeacher) => {
-    let response;
-    if (isTeacher) {
-        response = await fetch(endpoints.getTeacherInfo, {
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${jwt}`
-            }
-        })
-    } else {
-        //for students
-    }
-
+    const url = isTeacher ? endpoints.getTeacherInfo : endpoints.getStudentInfo;
+    const response = await fetch(url, {
+        method: "GET",
+        headers: { 
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${jwt}`
+        }
+    })
+    
     if (response.status === 200) {
         const data = await response.json();
+        return data;
     } else {
         return null;
     }
+}
+
+export const auth = async(isTeacher, reqBody) => {
+    const url = isTeacher ? endpoints.teacherAuth : endpoints.studentAuth;
+    const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: reqBody
+    });
+    if (response.status === 200) {
+        const data = await response.json();
+        return { isAuth: true, message: data.message, data: data };
+    } else if (response.status === 400) {
+        const data = await response.json();
+        return { isAuth: false, message: data.message };
+    }
+    else {
+        return null;
+    }
+    return null;
 }

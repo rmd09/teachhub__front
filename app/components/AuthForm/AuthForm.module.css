@@ -142,9 +142,27 @@
 }
 .h3 {
     font-size: 1.3vw;
-    transform: translateY(-0.35vw);
+}
+.last__section {
+    transform: translateY(-0.31vw);
 }
 .click__link {
     cursor: pointer;
     color: #2673E5;
+}
+.click__link:active {
+    color: #7226e5;
+}
+.needToRemember__section {
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+}
+.checkBox {
+    width: 1.2vw;
+    height: 1.2vw;
+    transform: translateY(0.05vw);
+}
+.checkBox:hover {
+    cursor: pointer;
 }
