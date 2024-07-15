@@ -90,6 +90,7 @@
     display: flex;
     gap: 0.5vw;
     transform: translateX(-0.36vw);
+    align-items: center;
 }
 .notes::after {
     content: "";

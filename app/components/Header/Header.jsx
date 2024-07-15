@@ -63,7 +63,7 @@ export const Header = () => {
             )}
             
             <div className={Styles["auth"]}>
-                <button onClick={auth} className={`${Styles["auth__button"]} ${Styles["login"]}`}>{isAuth ? "Профиль" : "Войти"}</button>
+                <button onClick={isAuth ? ()=>{} : auth} className={`${Styles["auth__button"]} ${Styles["login"]}`}>{isAuth ? "Профиль" : "Войти"}</button>
                 <button onClick={isAuth ? logout : registr} className={`${Styles["auth__button"]} ${Styles["signup"]}`}>{isAuth ? "Выйти" : "Зарегистрироваться"}</button>
             </div>
         </header>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Styles from "./AuthForm.module.css";
 import { auth, registr } from "@/app/api/api-utils";
 import { useStore } from "@/app/Store";
+import { Checkbox } from "../Checkbox/Checkbox";
 
 export const AuthForm = (props) => {
     const [isFirstForm, setIsFirstForm] = useState(true);
@@ -105,8 +106,9 @@ export const AuthForm = (props) => {
                     <button onClick={() => {setIsAuthForm(!isAuthForm)}} type="button" className={Styles["gray__button"]}>{isAuthForm ? "Зарегистрироваться" : "Войти"}</button>
                 </section>
                 <section className={Styles["needToRemember__section"]}>
-                    <input onClick={checkBoxHandler} type="checkbox" className={Styles["checkBox"]} />
-                    <h3 className={Styles["h3"]}>Запомнить меня на устройстве</h3>
+                    {/* <input onClick={checkBoxHandler} type="checkbox" className={Styles["checkBox"]} /> */}
+                    <Checkbox click={checkBoxHandler}/>
+                    <h3 className={Styles["h3"]}>Запомнить меня</h3>
                 </section>
                 <h3 className={`${Styles["h3"]} ${Styles["last__section"]}`}>{isForTeacher ? "Вы ученик?" : "Вы учитель?"} <span onClick={() => {setIsForTeacher(!isForTeacher)}} className={Styles["click__link"]}>Кликайте!</span></h3>
             </form>
