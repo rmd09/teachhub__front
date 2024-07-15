@@ -1,0 +1,14 @@
+.main {
+    width: 2vw;
+    height: 2vw;
+    background-size: contain;
+}
+.main:hover {
+    cursor: pointer;
+}
+.main-checked {
+    background: url(/img/checkbox_checked.svg);
+}
+.main-unchecked {
+    background: url(/img/checkbox_unchecked.svg);
+}

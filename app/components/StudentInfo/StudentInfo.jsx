@@ -1,3 +1,4 @@
+import { Checkbox } from "../Checkbox/Checkbox";
 import Styles from "./StudentInfo.module.css";
 
 export const StudentInfo = (props) => {
@@ -19,7 +20,8 @@ export const StudentInfo = (props) => {
             <section className={Styles["notes"]}>
                 <div contentEditable type="text" className={`${Styles["notes__value"]}`}></div>
                 <div className={Styles["notes__checkbox"]}>
-                    <input type="checkbox" className={`${Styles["notes__checkbox-input"]}`}/>
+                    {/* <input type="checkbox" className={`${Styles["notes__checkbox-input"]}`}/> */}
+                    <Checkbox />
                     <h4 className={Styles["h4"]}>Сделать заметки публичными</h4>
                 </div>
             </section>
