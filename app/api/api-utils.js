@@ -1,7 +1,6 @@
 "use client"
 
 import { endpoints } from "./config";
-import { useStore } from "../Store";
 
 
 export const getData = async(url) => {
@@ -42,7 +41,7 @@ export const auth = async(isTeacher, reqBody) => {
     const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json"},
-        body: reqBody
+        body: JSON.stringify(reqBody)
     });
     if (response.status === 200) {
         const data = await response.json();
@@ -54,5 +53,22 @@ export const auth = async(isTeacher, reqBody) => {
     else {
         return null;
     }
-    return null;
+}
+
+export const registr = async(isTeacher, reqBody) => {
+    const url = isTeacher ? endpoints.teacherRegistr : endpoints.studentRegistr;
+    const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reqBody)
+    });
+    if (response.status === 200) {
+        const data = await response.json();
+        return { isAuth: true, message: data.message, data: data }
+    } else if (response.status === 400) {
+        const data = await response.json();
+        return { isAuth: false, message: data.message, data: data }
+    } else {
+        return null;
+    }
 }

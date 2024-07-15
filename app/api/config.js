@@ -5,4 +5,6 @@ export const endpoints = {
     studentAuth: `${BASE_URL}/student/auth`,
     getTeacherInfo: `${BASE_URL}/teacher/me`,
     getStudentInfo: `${BASE_URL}/student/me`,
+    teacherRegistr: `${BASE_URL}/teacher/registr`,
+    studentRegistr: `${BASE_URL}/student/registr`
 }

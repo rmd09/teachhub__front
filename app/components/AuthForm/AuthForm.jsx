@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Styles from "./AuthForm.module.css";
-import { auth } from "@/app/api/api-utils";
+import { auth, registr } from "@/app/api/api-utils";
 import { useStore } from "@/app/Store";
 
 export const AuthForm = (props) => {
     const [isFirstForm, setIsFirstForm] = useState(true);
     const [isForTeacher, setIsForTeacher] = useState(true);
-    const [isAuth, setIsAuth] = useState(props.isAuth);
+    const [isAuthForm, setIsAuthForm] = useState(props.isAuth);
     const [isFocus1, setIsFocus1] = useState(false);
     const [isFocus2, setIsFocus2] = useState(false);
     const [authData, setAuthData] = useState({ username: "", password: "" });
@@ -35,20 +35,36 @@ export const AuthForm = (props) => {
         setNeedToRemember(!needToRemember);
     }
 
-    const formSubmit = async() => {
-        const reqBody = { username: authData.username, password: authData.password, needToRemember: needToRemember};
+    const authSubmit = async() => {
+        const reqBody = { ...authData, needToRemember: needToRemember};
 
-        const response = await auth(isForTeacher, JSON.stringify(reqBody));
+        const response = await auth(isForTeacher, reqBody);
         if (response?.isAuth) {
-            console.log(response.message);
+            alert(response.message);
             login(response.data.jwt, response.data.user, isForTeacher);
             props.close();
         }
         else if (!response?.isAuth) {
-            console.log(response.message);
+            alert(response.message);
         }
         else {
-            console.log("Непридвиденная ошибка");
+            alert("Непридвиденная ошибка");
+        }
+    }
+    const registrForm = async() => {
+        const reqBody = { ...authData, needToRemember: needToRemember };
+
+        const response = await registr(isForTeacher, reqBody);
+        if (response?.isAuth) {
+            alert(response.message);
+            login(response.data.jwt, response.data.user, isForTeacher);
+            props.close();
+        }
+        else if (!response?.isAuth) {
+            alert(response.message);
+        }
+        else {
+            alert("Непридвиденная ошибка");
         }
     }
 
@@ -58,7 +74,7 @@ export const AuthForm = (props) => {
         {/* Форма №1: Учитель/ученик */}
         {isFirstForm && (
             <>
-            <h1 className={`${Styles["h1"]} ${Styles["header__title"]}`}>{isAuth ? "Авторизация" : "Регистрация"}</h1>
+            <h1 className={`${Styles["h1"]} ${Styles["header__title"]}`}>{isAuthForm ? "Авторизация" : "Регистрация"}</h1>
             <main className={Styles["first__main"]}>
                 <section onClick={teacherHandler} className={Styles["iamteacher"]}>
                     <img src="/img/teacher.gif" alt="teacher" className={Styles["iamteacher__gif"]} />
@@ -75,9 +91,9 @@ export const AuthForm = (props) => {
         
         {/* Форма №2: Регистрация/Авторизация */}
         {!isFirstForm && (
-            <form action={formSubmit} className={Styles["form"]}>
+            <form action={isAuthForm ? authSubmit : registrForm} className={Styles["form"]}>
                 <header className={Styles["header"]}>
-                    <h1 className={Styles["h1"]}>{isAuth ? "Авторизация" : "Регистрация"}</h1>
+                    <h1 className={Styles["h1"]}>{isAuthForm ? "Авторизация" : "Регистрация"}</h1>
                     <h2 className={Styles["h2"]}>{isForTeacher ? "для учителя" : "для ученика"}</h2>
                 </header>
                 <section className={Styles["inputs"]}>
@@ -85,8 +101,8 @@ export const AuthForm = (props) => {
                     <div className={`${Styles["input__container"]} ${isFocus2 && Styles["input__container-focus"]}`}><input onChange={passwordChangeHandler} onFocus={() => {setIsFocus2(true)}} onBlur={() => {setIsFocus2(false)}} placeholder="Пароль" type="password" className={`${Styles["input"]} ${Styles["input2"]}`} /></div>
                 </section>
                 <section className={Styles["buttons"]}>
-                    <button type="submit" className={Styles["main__button"]}>{isAuth ? "Войти" : "Зарегистрироваться"}</button>
-                    <button onClick={() => {setIsAuth(!isAuth)}} type="button" className={Styles["gray__button"]}>{isAuth ? "Зарегистрироваться" : "Войти"}</button>
+                    <button type="submit" className={Styles["main__button"]}>{isAuthForm ? "Войти" : "Зарегистрироваться"}</button>
+                    <button onClick={() => {setIsAuthForm(!isAuthForm)}} type="button" className={Styles["gray__button"]}>{isAuthForm ? "Зарегистрироваться" : "Войти"}</button>
                 </section>
                 <section className={Styles["needToRemember__section"]}>
                     <input onClick={checkBoxHandler} type="checkbox" className={Styles["checkBox"]} />
