@@ -1,0 +1,36 @@
+.main {
+    position: fixed;
+    z-index: 3;
+    right: 2vw;
+
+    width: 20vw;
+    height: 4vw;
+    border-radius: 0.7vw;
+    display: flex;
+    align-items: center;
+    padding: 0.2vw 0.7vw;
+
+    animation-name: appear;
+    animation-timing-function: ease-out;
+    animation-duration: 400ms;
+}
+.main-OK {
+    background-color: #65E050;
+}
+.main-error {
+    background: rgb(255,73,73);
+    background: linear-gradient(180deg, rgba(255,73,73,1) 0%, rgba(255,29,29,1) 100%); 
+}
+.h1 {
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(-6vw);
+    }
+    to {
+        transform: none;
+    }
+}
