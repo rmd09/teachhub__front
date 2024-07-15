@@ -146,6 +146,9 @@
 }
 .h3 {
     font-size: 1.3vw;
+    max-width: 20vw;
+    text-wrap: wrap;
+    text-align: center  ;
 }
 .last__section {
     transform: translateY(-0.31vw);

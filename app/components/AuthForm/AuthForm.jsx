@@ -14,6 +14,7 @@ export const AuthForm = (props) => {
     const [isFocus2, setIsFocus2] = useState(false);
     const [authData, setAuthData] = useState({ username: "", password: "" });
     const [needToRemember, setNeedToRemember] = useState(false);
+    const [message, setMessage] = useState(null);
     
     const login = useStore((state) => state.login);
 
@@ -35,21 +36,29 @@ export const AuthForm = (props) => {
     const checkBoxHandler = (e) => {
         setNeedToRemember(!needToRemember);
     }
+    const showMessage = (text, close) => {
+        setMessage(text);
+        setTimeout(() => {
+            setMessage(null);
+            if (close) {
+                close();
+            }
+        }, 1000)
+    }
 
     const authSubmit = async() => {
         const reqBody = { ...authData, needToRemember: needToRemember};
 
         const response = await auth(isForTeacher, reqBody);
         if (response?.isAuth) {
-            alert(response.message);
+            showMessage(response.message, props.close);
             login(response.data.jwt, response.data.user, isForTeacher);
-            props.close();
         }
         else if (!response?.isAuth) {
-            alert(response.message);
+            showMessage(response.message);
         }
         else {
-            alert("Непридвиденная ошибка");
+            showMessage("Непридвиденная ошибка");
         }
     }
     const registrForm = async() => {
@@ -57,15 +66,14 @@ export const AuthForm = (props) => {
 
         const response = await registr(isForTeacher, reqBody);
         if (response?.isAuth) {
-            alert(response.message);
+            showMessage(response.message, props.close);
             login(response.data.jwt, response.data.user, isForTeacher);
-            props.close();
         }
         else if (!response?.isAuth) {
-            alert(response.message);
+            showMessage(response.message);
         }
         else {
-            alert("Непридвиденная ошибка");
+            showMessage("Непридвиденная ошибка");
         }
     }
 
@@ -101,6 +109,7 @@ export const AuthForm = (props) => {
                     <div className={`${Styles["input__container"]} ${isFocus1 && Styles["input__container-focus"]}`}><input onChange={usernameChangeHandler} onFocus={() => {setIsFocus1(true)}} onBlur={() => {setIsFocus1(false)}} placeholder="Имя пользователя" type="text" className={`${Styles["input"]} ${Styles["input1"]}`} /></div>
                     <div className={`${Styles["input__container"]} ${isFocus2 && Styles["input__container-focus"]}`}><input onChange={passwordChangeHandler} onFocus={() => {setIsFocus2(true)}} onBlur={() => {setIsFocus2(false)}} placeholder="Пароль" type="password" className={`${Styles["input"]} ${Styles["input2"]}`} /></div>
                 </section>
+                {message && <h3 className={Styles["h3"]}>{message}</h3>}
                 <section className={Styles["buttons"]}>
                     <button type="submit" className={Styles["main__button"]}>{isAuthForm ? "Войти" : "Зарегистрироваться"}</button>
                     <button onClick={() => {setIsAuthForm(!isAuthForm)}} type="button" className={Styles["gray__button"]}>{isAuthForm ? "Зарегистрироваться" : "Войти"}</button>
