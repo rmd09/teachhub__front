@@ -14,7 +14,7 @@ export const StudentCard = (props) => {
                 <h3 className={Styles["student__card-title"]}>Предмет</h3>
                 <h1 className={Styles["subject__value"]}>{props.subject}</h1>
                 <svg className={Styles["border"]} width="1" height="192" viewBox="0 0 1 192" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0.5" y1="2.18557e-08" x2="0.499992" y2="192" stroke="#3B404D" stroke-dasharray="4 4"/>
+                    <line x1="0.5" y1="2.18557e-08" x2="0.499992" y2="192" stroke="#3B404D" strokeDasharray="4 4"/>
                 </svg>
             </section>
             <section className={Styles["homework"]}>
@@ -23,7 +23,7 @@ export const StudentCard = (props) => {
                 {props.homework}
                 </p>
                 <svg className={Styles["border"]} width="1" height="192" viewBox="0 0 1 192" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="0.5" y1="2.18557e-08" x2="0.499992" y2="192" stroke="#3B404D" stroke-dasharray="4 4"/>
+                    <line x1="0.5" y1="2.18557e-08" x2="0.499992" y2="192" stroke="#3B404D" strokeDasharray="4 4"/>
                 </svg>
             </section>
             <section className={Styles["meeting"]}>
