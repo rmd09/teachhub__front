@@ -10,17 +10,10 @@ import { useStore } from "../Store";
 import { useRouter } from "next/navigation";
 
 export default function Students() {
-    const isAuth = useStore((state) => state.isAuth);
-    const router = useRouter();
-
-    useEffect(() => {
-        if (!isAuth) {
-            router.push("/");
-        }
-    }, [isAuth])
+    const user = useStore((state) => state.user);
 
     return (
-        <StudentCardList data={temp}/>
+        <StudentCardList data={user?.students}/>
     )
 }
 

@@ -25,7 +25,7 @@ export const StudentCardList = (props) => {
 
             <div className={Styles["card__list"]}></div>
             {
-                props.data.map((student, key) => {
+                props.data?.map((student, key) => {
                     return <StudentCard {...student} openPopup={openPopup} key={key}/>
                 })
             }
