@@ -4,7 +4,36 @@
     gap: 0.7vw;
     width: 80vw;
 }
+.header {
+    margin-top: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .title {
     font-size: 2vw;
-    margin-top: 4vw;
+}
+.add__student__container {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+.add__student {
+    font-size: 1.7vw;
+}
+.plus-svg {
+    background-color: #5A75A0;
+    width: 1.35vw;
+    height: 1.35vw;
+    padding: 0.55vw;
+    border-radius: 100%;
+    transition: transform ease-out 150ms;
+}
+.plus-svg:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+.plus-svg:active{
+    transition: background-color linear 10ms;
+    background-color: #7693c2;
 }
