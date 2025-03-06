@@ -4,7 +4,7 @@ import { useState } from "react";
 import Styles from "./Checkbox.module.css";
 
 export const Checkbox = (props) => {
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(props.default ?? false);
 
     const clickHandler = () => {
         setIsChecked(!isChecked);

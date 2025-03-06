@@ -10,6 +10,7 @@ import { StudentInfo } from "../StudentInfo/StudentInfo";
 export const StudentCardList = (props) => {
     const [isStudentPopupOpened, setIsStudentPopupOpened] = useState(false);
     const [isPopupForChanging, setIsPopupForChanging] = useState(false);
+    const [studentInfo, setStudentInfo] = useState({});
 
     const openPopupForChanging = () => {
         setIsPopupForChanging(true);
@@ -40,7 +41,7 @@ export const StudentCardList = (props) => {
             <div className={Styles["card__list"]}></div>
             {
                 props.data?.map((student, key) => {
-                    return <StudentCard {...student} openPopup={openPopupForChanging} key={key}/>
+                    return <StudentCard student={student} setStudentInfo={setStudentInfo} openPopup={openPopupForChanging} key={key}/>
                 })
             }
         </main>
@@ -49,7 +50,7 @@ export const StudentCardList = (props) => {
             <>
             <Overlay close={closePopup} />
             <Popup close={closePopup}>
-                <StudentInfo isForChanging={isPopupForChanging} />
+                <StudentInfo studentInfo={studentInfo} isForChanging={isPopupForChanging} />
             </Popup>
             </>
         )}
